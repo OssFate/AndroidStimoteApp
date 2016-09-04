@@ -1,3 +1,9 @@
+package com.example.oswald.airport;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
@@ -13,10 +19,10 @@ public class BeaconsPlease extends Activity {
     private int scanPause;
     private double dist_a, dist_b, dist_c;
 
-        beaconManager = new BeaconManager(this);
-        beaconManager.setBackgroundScanPeriod(scanInterval, scanPause);
+    BeaconManager beaconManager = new BeaconManager(this);
+    beaconManager.setBackgroundScanPeriod(scanInterval, scanPause);
 
-        beaconManager.setRangingListener(new BeaconManager.RangingListener() {
+    beaconManager.setRangingListener(new BeaconManager.RangingListener() {
 
             @Override
             public void onBeaconsDiscovered(Region region, List<Beacon> beacons) {
